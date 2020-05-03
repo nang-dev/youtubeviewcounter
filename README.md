@@ -7,7 +7,7 @@ Get setup with the Youtube API: https://developers.google.com/youtube/v3/quickst
         Be sure to follow it carefully, as it won't work if you don't do every step. \
 \
 ###Step 2: Save the Google Oauth Client File from Step 1 into a file named "secret.json" \
-###Step 3: [Download](https://github.com/nang149/youtubeviewcounter.git) code from Github and 
+###Step 3: [Download](https://github.com/nang149/youtubeviewcounter.git) code from Github and  \
 	- Replace client_secrets_file with your new "secret.json"
  	- Replace the id's with the id of the video you want to edit
 ###Step 4:
