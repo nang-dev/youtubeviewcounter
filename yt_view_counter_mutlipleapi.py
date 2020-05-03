@@ -8,6 +8,13 @@ from time import sleep
 #initialize permissions
 scopes = ["https://www.googleapis.com/auth/youtube.force-ssl"]
 
+def create_api_list(infile):
+    api_list = [];
+    with open(infile, "r") as reader:
+        for line in reader:
+            api_list.append(line.strip('\n').strip('\r'));
+    return api_list;
+
 #to displau data
 pp = pprint.PrettyPrinter(indent=2)
 def main():
@@ -16,18 +23,21 @@ def main():
     api_service_name = "youtube"
     api_version = "v3"
 
-    client_secrets_file = "PUT_YOUR_CLIENT_AUTH_FILE_HERE.json"
-
-    # Get credentials and create an API client
-    flow = google_auth_oauthlib.flow.InstalledAppFlow.from_client_secrets_file(
-        client_secrets_file, scopes)
-    credentials = flow.run_console()
-    youtube.append(googleapiclient.discovery.build(
-        api_service_name, api_version, credentials=credentials))
+    api_list = create_api_list("api_files.txt");
+    print(api_list);
+    youtube = [];
+    for client_secrets_file in api_list:
+        # Get credentials and create an API client
+        flow = google_auth_oauthlib.flow.InstalledAppFlow.from_client_secrets_file(
+            client_secrets_file, scopes)
+        credentials = flow.run_console()
+        youtube.append(googleapiclient.discovery.build(
+            api_service_name, api_version, credentials=credentials))
 
     count = 0;
     curr_api = 0;
     while(True): 
+        curr_api = curr_api + 1 if curr_api < len(api_list)-1 else 0;
 
         # Request (This is what asks Youtube API for the video data)
         try:
