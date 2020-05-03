@@ -27,6 +27,7 @@ def main():
 
     count = 0;
     curr_api = 0;
+    youtube = [];
     while(True): 
 
         # Request (This is what asks Youtube API for the video data)
