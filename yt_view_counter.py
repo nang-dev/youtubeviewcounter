@@ -16,8 +16,9 @@ def main():
     api_service_name = "youtube"
     api_version = "v3"
 
-    client_secrets_file = "PUT_YOUR_CLIENT_AUTH_FILE_HERE.json"
+    client_secrets_file = "PUT_YOUR_AUTH_FILE_HERE.json"
 
+    youtube = [];
     # Get credentials and create an API client
     flow = google_auth_oauthlib.flow.InstalledAppFlow.from_client_secrets_file(
         client_secrets_file, scopes)
@@ -27,7 +28,7 @@ def main():
 
     count = 0;
     curr_api = 0;
-    youtube = [];
+    
     while(True): 
 
         # Request (This is what asks Youtube API for the video data)
@@ -65,7 +66,7 @@ def main():
                 response = request.execute()
                 
                 print("Worked!" + str(count));
-                sleep(475 / len(api_list));
+                sleep(475);
             count += 1;
             
             
@@ -73,7 +74,7 @@ def main():
             print("Error, trying again");
 
         count += 1;
-        sleep(44 / len(api_list));
+        sleep(44);
         
         
 #run program
