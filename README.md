@@ -1,4 +1,8 @@
 # Youtube View Updater / Comment Updater
+Using the Youtube API and Python to update view count on Youtube video to: \
+Achieve the "This Video Has X Views" Title
+Enable video's title to be the most recent comment
++ More!
 
 ## How to Use
 
