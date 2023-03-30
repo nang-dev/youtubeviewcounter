@@ -47,7 +47,7 @@ def main():
         comment_text = comment_text[:min(len(comment_text), max_length)];
 
         #Update title
-        title_upd = "Your Comment: \"" + comment_username + "\" -"  + comment_text;
+        title_upd = comment_text + " -" + comment_username + "(Your Comment Becomes The Title)"
 
         # Request (This is what asks Youtube API for the video data)
         request = youtube.videos().list(
